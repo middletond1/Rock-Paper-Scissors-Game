@@ -1,0 +1,67 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+header {
+    background-color: brown;
+    text-align: center;
+    color: whitesmoke;
+    width: auto;
+    height: 150px;
+    line-height: 150px;
+    font-size: 50px;
+}
+
+body {
+    text-align: center;
+    background-color: burlywood;
+}
+
+h1 {
+    margin: 30px;
+    font-size: 40px;
+}
+
+#rock {
+    background-image: url(noun_Fist_477918s.png);
+    width: 180px;
+    height: 180px;
+    background-color: transparent;
+    border: 0;
+    margin: 30px;
+    transition: transform .5s;
+}
+
+#rock:hover {
+    transform:scale(1.2);
+}
+
+#paper {
+    background-image: url(noun_Hand_477922s.png);
+    width: 180px;
+    height: 180px;
+    background-color: transparent;
+    border: 0;
+    margin: 30px;
+    transition: transform .5s;
+}
+
+#paper:hover {
+    transform:scale(1.2);
+}
+
+#scissors {
+    background-image: url(noun_Scissors_477919s.png);
+    width: 180px;
+    height: 180px;
+    background-color: transparent;
+    border: 0;
+    margin: 30px;
+    transition: transform .5s;
+}
+
+#scissors:hover {
+    transform:scale(1.2);
+}
