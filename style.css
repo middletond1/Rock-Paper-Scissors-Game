@@ -16,52 +16,77 @@ header {
 
 body {
     text-align: center;
+    position: relative;
     background-color: burlywood;
+}
+
+#info-container {
+    display: flex;
+    justify-content: space-around;
 }
 
 h1 {
     margin: 30px;
     font-size: 40px;
+    order: 1;
 }
 
-#rock {
-    background-image: url(noun_Fist_477918s.png);
+#player-score, #comp-score {
+    margin: 30px;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+#player-score {
+    order: 0;
+}
+
+#comp-score {
+    order: 2;
+}
+
+.grow {
+    transition: transform .5s;
+}
+
+.grow:hover {
+    transform:scale(1.2);
+}
+
+.rock {
+    background-image: url(./images/noun_Fist_477918s.png);
     width: 180px;
     height: 180px;
     background-color: transparent;
     border: 0;
     margin: 30px;
-    transition: transform .5s;
 }
 
-#rock:hover {
-    transform:scale(1.2);
-}
-
-#paper {
-    background-image: url(noun_Hand_477922s.png);
+.paper {
+    background-image: url(./images/noun_Hand_477922s.png);
     width: 180px;
     height: 180px;
     background-color: transparent;
     border: 0;
     margin: 30px;
-    transition: transform .5s;
 }
 
-#paper:hover {
-    transform:scale(1.2);
-}
-
-#scissors {
-    background-image: url(noun_Scissors_477919s.png);
+.scissors {
+    background-image: url(./images/noun_Scissors_477919s.png);
     width: 180px;
     height: 180px;
     background-color: transparent;
     border: 0;
     margin: 30px;
-    transition: transform .5s;
 }
 
-#scissors:hover {
-    transform:scale(1.2);
+#play-area {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#player-choice, #comp-choice, #pointer {
+    flex-basis: 180px;
+    height: 180px;
+    border: 10px solid black;
 }

@@ -9,11 +9,20 @@
 </head>
 <body>
     <header>Let's Play Rock Paper Scissors!</header>
-    <h1>Choose Your Weapon</h1>
+    <div id="info-container">
+        <h1>Choose Your Weapon</h1>
+        <div id="player-score">Player:</div>
+        <div id="comp-score">Computer:</div>
+    </div>
     <div id="buttons">
-        <button id="rock" type="button"></button>
-        <button id="paper" type="button"></button>
-        <button id="scissors" type="button"></button>
+        <button class="rock grow" type="button"></button>
+        <button class="paper grow" type="button"></button>
+        <button class="scissors grow" type="button"></button>
+    </div>
+    <div id="play-area">
+        <div id="player-choice"></div>
+        <div id="pointer"></div>
+        <div id="comp-choice"></div>
     </div>
     <script src="script.js"></script>
 </body>
