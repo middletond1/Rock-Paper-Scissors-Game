@@ -47,6 +47,7 @@ h1 {
 
 .grow {
     transition: transform .5s;
+    margin: 30px;
 }
 
 .grow:hover {
@@ -59,7 +60,6 @@ h1 {
     height: 180px;
     background-color: transparent;
     border: 0;
-    margin: 30px;
 }
 
 .paper {
@@ -68,7 +68,6 @@ h1 {
     height: 180px;
     background-color: transparent;
     border: 0;
-    margin: 30px;
 }
 
 .scissors {
@@ -77,7 +76,6 @@ h1 {
     height: 180px;
     background-color: transparent;
     border: 0;
-    margin: 30px;
 }
 
 #play-area {
