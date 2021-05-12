@@ -31,7 +31,7 @@ h1 {
     order: 1;
 }
 
-#player-score, #comp-score {
+#player-score, #pc-score {
     margin: 30px;
     font-size: 40px;
     font-weight: bold;
@@ -41,7 +41,7 @@ h1 {
     order: 0;
 }
 
-#comp-score {
+#pc-score {
     order: 2;
 }
 
@@ -83,7 +83,7 @@ h1 {
     justify-content: space-evenly;
 }
 
-#player-choice, #comp-choice, #pointer {
+#player-choice, #pc-choice, #pointer {
     flex-basis: 180px;
     height: 180px;
     border: 10px solid black;
