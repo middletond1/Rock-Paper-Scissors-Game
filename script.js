@@ -31,8 +31,8 @@ function getPcChoice() {
 // } 
 
 function displayChoices(element) {
-    let playerChoice = getPlayerChoice(element);
-    let pcChoice = getPcChoice();
+    const playerChoice = getPlayerChoice(element);
+    const pcChoice = getPcChoice();
     playerChoiceArea.classList.add(`${playerChoice}`);
     pcChoiceArea.classList.add(`${pcChoice}`);
     if (playerChoice === 'rock' && pcChoice === 'scissors' || playerChoice === 'paper' && pcChoice === 'rock' || playerChoice === 'scissors' && pcChoice === 'paper') {
@@ -43,6 +43,14 @@ function displayChoices(element) {
         return "Draw.";
     }
 }
+
+function createResetButton() {
+    const resetButton = document.createElement('button');
+    resetButton.appendChild(document.createTextNode('Ok'));
+    resetButton.classList.add('reset');
+}
+
+function 
 
 function handleClickEvent(element) {
     displayChoices(element);
