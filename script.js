@@ -3,6 +3,7 @@ const pcScore = document.querySelector('#pc-score');
 const playerChoiceArea = document.querySelector('#player-choice');
 const pcChoiceArea = document.querySelector('#pc-choice');
 const buttons = document.querySelector('#buttons')
+const body = document.querySelector('body');
 let playerScoreValue = 0;
 
 function getPlayerChoice(element) {
@@ -46,14 +47,21 @@ function displayChoices(element) {
 
 function createResetButton() {
     const resetButton = document.createElement('button');
-    resetButton.appendChild(document.createTextNode('Ok'));
+    resetButton.appendChild(document.createTextNode('Reset'));
     resetButton.classList.add('reset');
+    return resetButton;
 }
 
-function 
+function createOutcomeText(element) {
+    const outcomeText = document.createElement('h2')
+    const displayChoice = document.createTextNode(displayChoices(element));
+    outcomeText.appendChild(displayChoice);
+    outcomeText.appendChild(createResetButton());
+    body.appendChild(outcomeText);
+}
 
 function handleClickEvent(element) {
-    displayChoices(element);
+    createOutcomeText(element);
 }
 
 buttons.addEventListener('click', handleClickEvent);
