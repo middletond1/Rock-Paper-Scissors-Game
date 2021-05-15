@@ -54,7 +54,7 @@ function drawPCScore() {
 
 function createResetButton() {
     const resetButton = document.createElement('button');
-    resetButton.appendChild(document.createTextNode('Reset'));
+    // resetButton.appendChild(document.createTextNode('Reset'));
     resetButton.classList.add('reset');
     return resetButton;
 }
@@ -101,13 +101,13 @@ function createOutcomeTextbox(outcome) {
 function drawOutcome(element) {
     if (playerChoiceArea.classList.contains('rock') || playerChoiceArea.classList.contains('paper') || playerChoiceArea.classList.contains('scissors')) {
         return;
-    }
+    };
     const playerChoice = getPlayerChoice(element);
     const pcChoice = getPcChoice();
     const outcome = createOutcome(playerChoice, pcChoice);
     if (playerChoice === undefined) {
         return;
-    }
+    };
     displayChoices(playerChoice, pcChoice);
     addPoint(outcome);
     drawPointer(outcome);
