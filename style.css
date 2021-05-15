@@ -91,6 +91,25 @@ h2 {
     border: 0;
 }
 
+.right-arrow, .left-arrow, .cross {
+    width: 180px;
+    height: 180px;
+    background-color: transparent;
+    border: 0;
+}
+
+.right-arrow {
+    background-image: url(./images/noun_Right_Arrow_1920806s.png);
+}
+
+.left-arrow {
+    background-image: url(./images/noun_Left_Arrow_1920781s.png);
+}
+
+.cross {
+    background-image: url(./images/noun_X_2289986s.png);
+}
+
 #play-area {
     display: flex;
     justify-content: space-evenly;

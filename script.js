@@ -1,5 +1,6 @@
 const playerChoiceArea = document.querySelector('#player-choice');
 const pcChoiceArea = document.querySelector('#pc-choice');
+const pointerBox = document.querySelector('#pointer');
 const buttons = document.querySelector('#buttons')
 const body = document.querySelector('body');
 let playerScore = 0;
@@ -26,11 +27,11 @@ function displayChoices(element) {
     playerChoiceArea.classList.add(`${playerChoice}`);
     pcChoiceArea.classList.add(`${pcChoice}`);
     if (playerChoice === 'rock' && pcChoice === 'scissors' || playerChoice === 'paper' && pcChoice === 'rock' || playerChoice === 'scissors' && pcChoice === 'paper') {
-        return "Congratulations, you win!";
+        return 'Congratulations, you win!';
     } else if (playerChoice === 'rock' && pcChoice === 'paper' || playerChoice === 'paper' && pcChoice === 'scissors' || playerChoice === 'scissors' && pcChoice === 'rock') {
-        return "Sorry, you lost.";
+        return 'Sorry, you lost.';
     } else if (playerChoice === 'rock' && pcChoice === 'rock' || playerChoice === 'paper' && pcChoice === 'paper' || playerChoice === 'scissors' && pcChoice === 'scissors') {
-        return "Draw.";
+        return 'Draw.';
     }
 }
 
@@ -61,21 +62,37 @@ function resetBoard(element) {
     if (element.target.classList.contains('reset')) {
         playerChoiceArea.classList.remove('rock', 'paper', 'scissors');
         pcChoiceArea.classList.remove('rock', 'paper', 'scissors');
+        pointerBox.classList.remove('left-arrow', 'right-arrow', 'cross')
         body.removeChild(document.querySelector('h2'));
     }
 }
 
-function createOutcomeText(element) {
+function drawPointer(outcome) {
+    if (outcome === 'Congratulations, you win!') {
+        pointerBox.classList.add('left-arrow');
+    } else if (outcome === 'Sorry, you lost.') {
+        pointerBox.classList.add('right-arrow');
+    } else if (outcome === 'Draw.') {
+        pointerBox.classList.add('cross');
+    }
+}
+
+function addPoint(outcome) {
+    if (outcome === 'Congratulations, you win!') {
+        playerScore++;
+    } else if (outcome === 'Sorry, you lost.') {
+        pcScore++;
+    }
+}
+
+function createOutcome(element) {
     if (playerChoiceArea.classList.contains('rock') || playerChoiceArea.classList.contains('paper') || playerChoiceArea.classList.contains('scissors')) {
         return;
     }
     const outcomeText = document.createElement('h2')
     const outcome = displayChoices(element);
-    if (outcome === "Congratulations, you win!") {
-        playerScore++;
-    } else if (outcome === "Sorry, you lost.") {
-        pcScore++;
-    }
+    addPoint(outcome);
+    drawPointer(outcome);
     outcomeText.appendChild(document.createTextNode(outcome));
     outcomeText.appendChild(createResetButton());
     body.appendChild(outcomeText);
@@ -87,7 +104,7 @@ function drawScores() {
 }
 
 function handleClickEvent(element) {
-    createOutcomeText(element);
+    createOutcome(element);
     drawScores();
 }
 
