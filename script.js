@@ -16,7 +16,7 @@ function getPlayerChoice(element) {
     }
 }
 
-function getPcChoice() {
+function getPCChoice() {
     let decision = ['rock', 'paper', 'scissors'][Math.floor((Math.random()*3))];
     return decision;
 }
@@ -38,17 +38,13 @@ function displayChoices(playerChoice, pcChoice) {
 
 function drawPlayerScore() {
     const playerScoreText = document.querySelector('#player-score');
-    if (playerScoreText.textContent !== '') {
-        playerScoreText.textContent = '';
-    }
+    playerScoreText.textContent = '';
     playerScoreText.appendChild(document.createTextNode(`Player: ${playerScore}`));
 }
 
 function drawPCScore() {
     const pcScoreText = document.querySelector('#pc-score');
-    if (pcScoreText.textContent !== '') {
-        pcScoreText.textContent = '';
-    }
+    pcScoreText.textContent = '';
     pcScoreText.appendChild(document.createTextNode(`Computer: ${pcScore}`));
 }
 
@@ -103,7 +99,7 @@ function drawOutcome(element) {
         return;
     };
     const playerChoice = getPlayerChoice(element);
-    const pcChoice = getPcChoice();
+    const pcChoice = getPCChoice();
     const outcome = createOutcome(playerChoice, pcChoice);
     if (playerChoice === undefined) {
         return;
