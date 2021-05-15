@@ -105,6 +105,9 @@ function drawOutcome(element) {
     const playerChoice = getPlayerChoice(element);
     const pcChoice = getPcChoice();
     const outcome = createOutcome(playerChoice, pcChoice);
+    if (playerChoice === undefined) {
+        return;
+    }
     displayChoices(playerChoice, pcChoice);
     addPoint(outcome);
     drawPointer(outcome);
