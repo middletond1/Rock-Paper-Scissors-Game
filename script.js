@@ -1,10 +1,9 @@
-const playerScore = document.querySelector('#player-score');
-const pcScore = document.querySelector('#pc-score');
 const playerChoiceArea = document.querySelector('#player-choice');
 const pcChoiceArea = document.querySelector('#pc-choice');
 const buttons = document.querySelector('#buttons')
 const body = document.querySelector('body');
-let playerScoreValue = 0;
+let playerScore = 0;
+let pcScore = 0;
 
 function getPlayerChoice(element) {
     if (element.target.classList.contains('rock')) {
@@ -21,16 +20,6 @@ function getPcChoice() {
     return decision;
 }
 
-// function getWinner(element) {
-//     if (getPlayerChoice(element) === 'rock' && getPcChoice() === 'scissors' || getPlayerChoice(element) === 'paper' && getPcChoice() === 'rock' || getPlayerChoice(element) === 'scissors' && getPcChoice() === 'paper') {
-//         console.log("Congratulations, you win!");
-//     } else if (getPlayerChoice(element) === 'rock' && getPcChoice() === 'paper' || getPlayerChoice(element) === 'paper' && getPcChoice() === 'scissors' || getPlayerChoice(element) === 'scissors' && getPcChoice() === 'rock') {
-//         console.log("Sorry, you lost.");
-//     } else if (getPlayerChoice(element) === 'rock' && getPcChoice() === 'rock' || getPlayerChoice(element) === 'paper' && getPcChoice() === 'paper' || getPlayerChoice(element) === 'scissors' && getPcChoice() === 'scissors') {
-//         console.log("Draw.");
-//     }
-// } 
-
 function displayChoices(element) {
     const playerChoice = getPlayerChoice(element);
     const pcChoice = getPcChoice();
@@ -43,6 +32,16 @@ function displayChoices(element) {
     } else if (playerChoice === 'rock' && pcChoice === 'rock' || playerChoice === 'paper' && pcChoice === 'paper' || playerChoice === 'scissors' && pcChoice === 'scissors') {
         return "Draw.";
     }
+}
+
+function drawPlayerScore() {
+    const playerScore = document.querySelector('player-score');
+    playerScore.appendChild(document.createTextNode('Player: ' + playerScore));
+}
+
+function drawPCScore() {
+    const pcScore = document.querySelector('pc-score');
+    playerScore.appendChild(document.createTextNode('Computer: ' + pcScore));
 }
 
 function createResetButton() {
