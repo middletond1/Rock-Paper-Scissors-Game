@@ -47,6 +47,7 @@ h2 {
     width: 100px;
     height: 100px;
     border: 0;
+    cursor: pointer;
 }
 
 #player-score, #pc-score {
@@ -72,28 +73,28 @@ h2 {
     transform:scale(1.2);
 }
 
-.rock {
-    background-image: url(./images/noun_Fist_477918s.png);
+.shrink:active {
+    transform:scale(.8);
+}
+
+.rock, .paper, .scissors {
     width: 180px;
     height: 180px;
     background-color: transparent;
     border: 0;
+    cursor: pointer;
+}
+
+.rock {
+    background-image: url(./images/noun_Fist_477918s.png);
 }
 
 .paper {
     background-image: url(./images/noun_Hand_477922s.png);
-    width: 180px;
-    height: 180px;
-    background-color: transparent;
-    border: 0;
 }
 
 .scissors {
     background-image: url(./images/noun_Scissors_477919s.png);
-    width: 180px;
-    height: 180px;
-    background-color: transparent;
-    border: 0;
 }
 
 .right-arrow, .left-arrow, .cross {

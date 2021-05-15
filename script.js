@@ -54,8 +54,8 @@ function drawPCScore() {
 
 function createResetButton() {
     const resetButton = document.createElement('button');
-    // resetButton.appendChild(document.createTextNode('Reset'));
     resetButton.classList.add('reset');
+    resetButton.classList.add('shrink');
     return resetButton;
 }
 
