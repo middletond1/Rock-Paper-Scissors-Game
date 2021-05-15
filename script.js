@@ -21,11 +21,7 @@ function getPcChoice() {
     return decision;
 }
 
-function displayChoices(element) {
-    const playerChoice = getPlayerChoice(element);
-    const pcChoice = getPcChoice();
-    playerChoiceArea.classList.add(`${playerChoice}`);
-    pcChoiceArea.classList.add(`${pcChoice}`);
+function createOutcome(playerChoice, pcChoice) {
     if (playerChoice === 'rock' && pcChoice === 'scissors' || playerChoice === 'paper' && pcChoice === 'rock' || playerChoice === 'scissors' && pcChoice === 'paper') {
         return 'Congratulations, you win!';
     } else if (playerChoice === 'rock' && pcChoice === 'paper' || playerChoice === 'paper' && pcChoice === 'scissors' || playerChoice === 'scissors' && pcChoice === 'rock') {
@@ -33,6 +29,11 @@ function displayChoices(element) {
     } else if (playerChoice === 'rock' && pcChoice === 'rock' || playerChoice === 'paper' && pcChoice === 'paper' || playerChoice === 'scissors' && pcChoice === 'scissors') {
         return 'Draw.';
     }
+}
+
+function displayChoices(playerChoice, pcChoice) {
+    playerChoiceArea.classList.add(`${playerChoice}`);
+    pcChoiceArea.classList.add(`${pcChoice}`);
 }
 
 function drawPlayerScore() {
@@ -85,26 +86,33 @@ function addPoint(outcome) {
     }
 }
 
-function createOutcome(element) {
-    if (playerChoiceArea.classList.contains('rock') || playerChoiceArea.classList.contains('paper') || playerChoiceArea.classList.contains('scissors')) {
-        return;
-    }
-    const outcomeText = document.createElement('h2')
-    const outcome = displayChoices(element);
-    addPoint(outcome);
-    drawPointer(outcome);
-    outcomeText.appendChild(document.createTextNode(outcome));
-    outcomeText.appendChild(createResetButton());
-    body.appendChild(outcomeText);
-}
-
 function drawScores() {
     drawPlayerScore();
     drawPCScore();
 }
 
+function createOutcomeTextbox(outcome) {
+    const outcomeText = document.createElement('h2')
+    outcomeText.appendChild(document.createTextNode(outcome));
+    outcomeText.appendChild(createResetButton());
+    body.appendChild(outcomeText);
+}
+
+function drawOutcome(element) {
+    if (playerChoiceArea.classList.contains('rock') || playerChoiceArea.classList.contains('paper') || playerChoiceArea.classList.contains('scissors')) {
+        return;
+    }
+    const playerChoice = getPlayerChoice(element);
+    const pcChoice = getPcChoice();
+    const outcome = createOutcome(playerChoice, pcChoice);
+    displayChoices(playerChoice, pcChoice);
+    addPoint(outcome);
+    drawPointer(outcome);
+    createOutcomeTextbox(outcome);
+}
+
 function handleClickEvent(element) {
-    createOutcome(element);
+    drawOutcome(element);
     drawScores();
 }
 
