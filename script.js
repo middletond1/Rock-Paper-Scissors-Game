@@ -52,7 +52,18 @@ function createResetButton() {
     return resetButton;
 }
 
+function resetBoard(element) {
+    if (element.target.classList.contains('reset')) {
+        playerChoiceArea.classList.remove('rock', 'paper', 'scissors');
+        pcChoiceArea.classList.remove('rock', 'paper', 'scissors');
+        body.removeChild(document.querySelector('h2'));
+    }
+}
+
 function createOutcomeText(element) {
+    if (playerChoiceArea.classList.contains('rock') || playerChoiceArea.classList.contains('paper') || playerChoiceArea.classList.contains('scissors')) {
+        return;
+    }
     const outcomeText = document.createElement('h2')
     const displayChoice = document.createTextNode(displayChoices(element));
     outcomeText.appendChild(displayChoice);
@@ -65,3 +76,4 @@ function handleClickEvent(element) {
 }
 
 buttons.addEventListener('click', handleClickEvent);
+body.addEventListener('click', resetBoard);
