@@ -35,13 +35,19 @@ function displayChoices(element) {
 }
 
 function drawPlayerScore() {
-    const playerScore = document.querySelector('player-score');
-    playerScore.appendChild(document.createTextNode('Player: ' + playerScore));
+    const playerScoreText = document.querySelector('#player-score');
+    if (playerScoreText.textContent !== '') {
+        playerScoreText.textContent = '';
+    }
+    playerScoreText.appendChild(document.createTextNode(`Player: ${playerScore}`));
 }
 
 function drawPCScore() {
-    const pcScore = document.querySelector('pc-score');
-    playerScore.appendChild(document.createTextNode('Computer: ' + pcScore));
+    const pcScoreText = document.querySelector('#pc-score');
+    if (pcScoreText.textContent !== '') {
+        pcScoreText.textContent = '';
+    }
+    pcScoreText.appendChild(document.createTextNode(`Computer: ${pcScore}`));
 }
 
 function createResetButton() {
@@ -64,15 +70,27 @@ function createOutcomeText(element) {
         return;
     }
     const outcomeText = document.createElement('h2')
-    const displayChoice = document.createTextNode(displayChoices(element));
-    outcomeText.appendChild(displayChoice);
+    const outcome = displayChoices(element);
+    if (outcome === "Congratulations, you win!") {
+        playerScore++;
+    } else if (outcome === "Sorry, you lost.") {
+        pcScore++;
+    }
+    outcomeText.appendChild(document.createTextNode(outcome));
     outcomeText.appendChild(createResetButton());
     body.appendChild(outcomeText);
 }
 
-function handleClickEvent(element) {
-    createOutcomeText(element);
+function drawScores() {
+    drawPlayerScore();
+    drawPCScore();
 }
 
+function handleClickEvent(element) {
+    createOutcomeText(element);
+    drawScores();
+}
+
+drawScores();
 buttons.addEventListener('click', handleClickEvent);
 body.addEventListener('click', resetBoard);
