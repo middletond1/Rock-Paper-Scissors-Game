@@ -22,11 +22,14 @@ function getPCChoice() {
 }
 
 function createOutcome(playerChoice, pcChoice) {
-    if (playerChoice === 'rock' && pcChoice === 'scissors' || playerChoice === 'paper' && pcChoice === 'rock' || playerChoice === 'scissors' && pcChoice === 'paper') {
+    const playerWin = playerChoice === 'rock' && pcChoice === 'scissors' || playerChoice === 'paper' && pcChoice === 'rock' || playerChoice === 'scissors' && pcChoice === 'paper';
+    const playerLose = playerChoice === 'rock' && pcChoice === 'paper' || playerChoice === 'paper' && pcChoice === 'scissors' || playerChoice === 'scissors' && pcChoice === 'rock';
+    const draw = playerChoice === 'rock' && pcChoice === 'rock' || playerChoice === 'paper' && pcChoice === 'paper' || playerChoice === 'scissors' && pcChoice === 'scissors';
+    if (playerWin) {
         return 'Congratulations, you win!';
-    } else if (playerChoice === 'rock' && pcChoice === 'paper' || playerChoice === 'paper' && pcChoice === 'scissors' || playerChoice === 'scissors' && pcChoice === 'rock') {
+    } else if (playerLose) {
         return 'Sorry, you lost.';
-    } else if (playerChoice === 'rock' && pcChoice === 'rock' || playerChoice === 'paper' && pcChoice === 'paper' || playerChoice === 'scissors' && pcChoice === 'scissors') {
+    } else if (draw) {
         return 'Draw.';
     }
 }
