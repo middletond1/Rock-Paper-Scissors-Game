@@ -21,7 +21,7 @@ function getPCChoice() {
     return decision;
 }
 
-function createOutcome(playerChoice, pcChoice) {
+function decideWinner(playerChoice, pcChoice) {
     const playerWin = playerChoice === 'rock' && pcChoice === 'scissors' || playerChoice === 'paper' && pcChoice === 'rock' || playerChoice === 'scissors' && pcChoice === 'paper';
     const playerLose = playerChoice === 'rock' && pcChoice === 'paper' || playerChoice === 'paper' && pcChoice === 'scissors' || playerChoice === 'scissors' && pcChoice === 'rock';
     const draw = playerChoice === 'rock' && pcChoice === 'rock' || playerChoice === 'paper' && pcChoice === 'paper' || playerChoice === 'scissors' && pcChoice === 'scissors';
@@ -103,7 +103,7 @@ function drawOutcome(element) {
     };
     const playerChoice = getPlayerChoice(element);
     const pcChoice = getPCChoice();
-    const outcome = createOutcome(playerChoice, pcChoice);
+    const outcome = decideWinner(playerChoice, pcChoice);
     if (playerChoice === undefined) {
         return;
     };
